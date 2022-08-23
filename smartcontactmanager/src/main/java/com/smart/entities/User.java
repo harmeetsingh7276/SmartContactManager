@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -27,7 +28,9 @@ public class User {
 	private String name;
 	
 	@Column(unique = true)
+	@Email(regexp="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",message="Enter a valid Email Address")
 	private String email;
+	
 	private String password;
 	private String role;
 	private boolean enabled;

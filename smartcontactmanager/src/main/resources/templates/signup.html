@@ -38,8 +38,11 @@
 							<!-- email field -->
 							<div class="form-group">
 								<label for="email_field">Your Email</label> <input name="email"
-									type="email" class="form-control" id="email_field"
+									type="email" class="form-control" id="email_field" 
+									th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
 									placeholder="Enter Here" th:value="${user.email}" required />
+									<div class="invalid-feedback"
+									th:each="e : ${#fields.errors('email')}" th:text="${e}"></div>
 							</div>
 							<!-- password field -->
 							<div class="form-group">
