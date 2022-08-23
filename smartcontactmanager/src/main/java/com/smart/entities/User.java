@@ -31,6 +31,8 @@ public class User {
 	@Email(regexp="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",message="Enter a valid Email Address")
 	private String email;
 	
+	@NotBlank(message = "Password field is required")
+	@Size(min = 8, message = "Password should have at least 8 characters.")
 	private String password;
 	private String role;
 	private boolean enabled;
